@@ -139,9 +139,9 @@ ORDER BY SoNhanVien ASC;
 SELECT CongTy.TenCongTy, COUNT(DuAn.MaCongTy) AS SL
 FROM DuAn
 JOIN CongTy ON DuAn.MaCongTy = CongTy.MaCongTy
-WHERE DuAn.TrangThai = N'Đang thực hiện'
+WHERE DuAn.TrangThai = N'Đang thực hiện' 
 GROUP BY CongTy.TenCongTy
-HAVING SL > 1
+HAVING COUNT(DuAn.MaCongTy) > 1
 ORDER BY SL DESC;
 
 -- Tìm kiếm các kỹ năng mà chuyên gia có cấp độ từ 4 trở lên và tính tổng số chuyên gia cho mỗi kỹ năng đó. Chỉ bao gồm những kỹ năng có tổng số chuyên gia lớn hơn 2. Sắp xếp kết quả theo tên kỹ năng tăng dần.
